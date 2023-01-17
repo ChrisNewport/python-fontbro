@@ -1,4 +1,5 @@
 import copy
+import io
 import itertools
 import math
 import os
@@ -216,7 +217,7 @@ class Font:
         self._lazy = None
         self._ttfont = None
 
-        if isinstance(filepath, str):
+        if isinstance(filepath, str) or isinstance(filepath, io.BytesIO):
             self._init_with_filepath(filepath, lazy=lazy)
         else:
             filepath_type = type(filepath).__name__
